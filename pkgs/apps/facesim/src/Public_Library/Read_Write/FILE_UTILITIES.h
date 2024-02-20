@@ -10,8 +10,13 @@
 
 #include <cstdlib>
 
+
 #include "READ_WRITE_FUNCTIONS.h"
 #include "../Utilities/STRING_UTILITIES.h"
+#if defined(__linux__) || defined(__unix__)
+#include <unistd.h>
+#include <sys/stat.h>
+#endif
 namespace PhysBAM
 {
 namespace FILE_UTILITIES
@@ -70,7 +75,9 @@ inline bool File_Is_Compressed (const std::string& filename)
 
 inline bool File_Exists_Ignoring_Compression_Suffix (const std::string& filename)
 {
-	return std::ifstream (filename.c_str()) != 0;
+	// return std::ifstream (filename.c_str()) != 0;
+	struct stat stat1;
+	return stat (filename.c_str(), &stat1) == 0;
 }
 
 inline bool File_Exists (const std::string& filename)
@@ -80,7 +87,8 @@ inline bool File_Exists (const std::string& filename)
 
 inline bool File_Writable_Ignoring_Compression_Suffix (const std::string& filename)
 {
-	return std::ofstream (filename.c_str()) != 0;
+	// return std::ofstream (filename.c_str()) != 0;
+	return access(filename.c_str(), W_OK) == 0;
 }
 
 inline bool File_Writable (const std::string& filename)

@@ -17,7 +17,7 @@ ifdef version
 endif
 
 $(TARGET): $(OBJS)
-	gcc $(OBJS) $(CFLAGS) -o $(TARGET) $(LDFLAGS)
+	gcc $(OBJS) $(CFLAGS) -o $(TARGET) $(LDFLAGS) -Wl,--allow-multiple-definition
 
 
 install:

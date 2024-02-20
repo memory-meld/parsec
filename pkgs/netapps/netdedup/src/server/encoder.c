@@ -70,12 +70,6 @@
 #define INITIAL_SEARCH_TREE_SIZE 4096
 
 
-//The configuration block defined in main
-config_t * conf;
-
-//Hash table data structure & utility functions
-struct hashtable *cache;
-
 static unsigned int hash_from_key_fn( void *k ) {
   //NOTE: sha1 sum is integer-aligned
   return ((unsigned int *)k)[0];

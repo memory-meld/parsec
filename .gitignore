@@ -1,5 +1,7 @@
 log/
 inst/
 obj/
+inputs/
 outputs/
 run/
+*.cache/

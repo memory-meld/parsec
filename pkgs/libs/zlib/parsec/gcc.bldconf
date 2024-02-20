@@ -12,7 +12,6 @@
 # global configuration. All variables set in the global configuration files can
 # be referenced here.
 
-
 # Package dependencies
 build_deps=""
 

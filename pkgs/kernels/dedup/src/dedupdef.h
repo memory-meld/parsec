@@ -215,5 +215,12 @@ typedef struct {
 
 #define UNCOMPRESS_BOUND 10000000
 
+//The configuration block defined in main
+extern config_t * conf;
+
+//Hash table data structure & utility functions
+extern struct hashtable *cache;
+
+
 #endif //_DEDUPDEF_H_
 

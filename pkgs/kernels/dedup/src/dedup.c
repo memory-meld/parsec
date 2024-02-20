@@ -23,6 +23,7 @@
 
 
 config_t * conf;
+struct hashtable *cache;
 
 
 
